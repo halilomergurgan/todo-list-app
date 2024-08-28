@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'todos/new'
+  get 'todos/create'
   root 'pages#home'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
