@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TodoListApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <!-- AdminLTE CSS -->
+  <%= stylesheet_link_tag "/adminlte/dist/css/adminlte.css" %>
+  <%= stylesheet_link_tag "/adminlte/plugins/fontawesome-free/css/all.css" %>
+
+  <%= stylesheet_link_tag "application", media: "all" %>
+</head>
+
+<body class="hold-transition login-page">
+<%= yield %>
+
+<!-- AdminLTE JS -->
+<%= javascript_include_tag "/adminlte/plugins/jquery/jquery.js" %>
+<%= javascript_include_tag "/adminlte/plugins/bootstrap/js/bootstrap.bundle.js" %>
+<%= javascript_include_tag "/adminlte/dist/js/adminlte.js" %>
+
+<!-- Rails Default JS -->
+<%= javascript_include_tag "application" %>
+</body>
+</html>
