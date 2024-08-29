@@ -7,16 +7,16 @@ This is a simple Todo List application built with Ruby on Rails. The application
 Here are some screenshots of the application:
 
 ### Login Page
-![Login Page](https://imgur.com/Rg9iaFH)
+![Login Page](https://imgur.com/Rg9iaFH.png)
 
 ### Registration Page
-![Registration Page](https://imgur.com/ClafRaQ)
+![Registration Page](https://imgur.com/ClafRaQ.png)
 
 ### Todo List Page
-![Todo List Page](https://imgur.com/xuQEkhG)
+![Todo List Page](https://imgur.com/xuQEkhG.png)
 
 ### Todo Edit Page
-![Todo List Page](https://imgur.com/4OCxbZi)
+![Todo List Page](https://imgur.com/4OCxbZi.png)
 
 ## Features
 
