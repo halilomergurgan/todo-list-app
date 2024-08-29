@@ -13,7 +13,7 @@ Here are some screenshots of the application:
 ![Registration Page](https://imgur.com/ClafRaQ.png)
 
 ### Todo List Page
-![Todo List Page](https://imgur.com/xuQEkhG.png)
+![Todo List Page](https://imgur.com/BRhoFXR.png)
 
 ### Todo Edit Page
 ![Todo List Page](https://imgur.com/4OCxbZi.png)
@@ -71,3 +71,16 @@ To run this project locally, follow these steps:
 * Use the check and cross icons to mark tasks as completed or revert them to pending.
 * Use the pencil icon to edit a task.
 * Use the trash icon to delete a task.
+
+## Test User
+A test user has been pre-configured for your convenience. You can log in using the following credentials:
+
+- **Email:** testuser@example.com
+- **Password:** password
+
+Feel free to use this account to explore the application's features.
+
+## Test
+   ```bash
+    rails test
+   ```

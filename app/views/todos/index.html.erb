@@ -18,6 +18,12 @@
     <% @todos.each do |todo| %>
       <li class="<%= 'completed' if todo.completed %>">
         <span class="task-title"><%= todo.title %></span>
+        <span class="task-priority badge <%= todo.priority %>">
+        <%= todo.priority_label %>
+      </span>
+        <span class="task-due-date">
+        Due: <%= todo.due_date.present? ? todo.due_date.strftime('%b %d, %Y') : '-' %>
+      </span>
         <div class="task-actions">
           <%= link_to "✏️", edit_todo_path(todo) %>
           <%= link_to "🗑️", delete_todo_path(todo), method: :get, data: { confirm: "Are you sure?" }, class: 'btn btn-sm btn-danger delete-task' %>
@@ -25,7 +31,8 @@
             <%= link_to "✔️", complete_todo_path(todo), method: :get, data: { turbo: false, confirm: "Mark as completed?" }, class: 'btn btn-sm btn-success complete-task' %>
           <% else %>
             <%= link_to "🔄", revert_todo_path(todo), method: :get, data: { turbo: false, confirm: "Revert to incomplete?" }, class: 'btn btn-sm btn-warning revert-task' %>
-          <% end %>        </div>
+          <% end %>
+        </div>
       </li>
     <% end %>
   </ul>
