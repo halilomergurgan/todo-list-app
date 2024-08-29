@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_todo, only: [:show, :edit, :update, :destroy, :delete, :complete, :revert]
+  before_action :set_todo, only: [:show, :edit, :update, :delete, :complete, :revert]
 
   def index
     @todos = current_user.todos.order(priority: :desc, due_date: :asc)
