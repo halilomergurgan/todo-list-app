@@ -1,31 +1,36 @@
-<h1>Your Todo List</h1>
+<div class="todo-list-container">
+  <h1>Todo List</h1>
 
-<%= link_to 'New Todo', new_todo_path, class: 'btn btn-primary' %>
+  <div class="add-task">
+    <%= form_with(model: Todo.new, local: true) do |f| %>
+      <%= f.text_field :title, placeholder: "Add new task..." %>
+      <%= f.submit "Add Task", class: "btn btn-primary" %>
+    <% end %>
 
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Due Date</th>
-    <th>Priority</th>
-    <th>Completed</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @todos.each do |todo| %>
-    <tr>
-      <td><%= todo.title %></td>
-      <td><%= todo.description %></td>
-      <td><%= todo.due_date %></td>
-      <td><%= todo.priority %></td>
-      <td><%= todo.completed ? 'Yes' : 'No' %></td>
-      <td>
-        <%= link_to 'Edit', edit_todo_path(todo), class: 'btn btn-sm btn-warning' %>
-        <%= link_to 'Delete', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+    <select style="margin-left: 10px; padding: 5px;">
+      <option>All</option>
+      <option>Completed</option>
+      <option>Pending</option>
+    </select>
+  </div>
+
+  <ul class="task-list">
+    <% @todos.each do |todo| %>
+      <li class="<%= 'completed' if todo.completed %>">
+        <span class="task-title"><%= todo.title %></span>
+        <div class="task-actions">
+          <%= link_to "✏️", edit_todo_path(todo) %>
+          <%= link_to "🗑️", delete_todo_path(todo), method: :get, data: { confirm: "Are you sure?" }, class: 'btn btn-sm btn-danger delete-task' %>
+          <% if !todo.completed %>
+            <%= link_to "✔️", complete_todo_path(todo), method: :get, data: { turbo: false, confirm: "Mark as completed?" }, class: 'btn btn-sm btn-success complete-task' %>
+          <% else %>
+            <%= link_to "🔄", revert_todo_path(todo), method: :get, data: { turbo: false, confirm: "Revert to incomplete?" }, class: 'btn btn-sm btn-warning revert-task' %>
+          <% end %>        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<!-- CSS and JS Links -->
+<link rel="stylesheet" href="/css/todo.css">
+<script src="/js/todo.js"></script>

@@ -6,5 +6,14 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :todos
+  resources :todos do
+    member do
+      get 'delete'
+      get 'complete'
+      get 'revert'
+    end
+    collection do
+      get 'filter'
+    end
+  end
 end

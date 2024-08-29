@@ -1,0 +1,13 @@
+<% todos.each do |todo| %>
+  <li class="<%= 'completed' if todo.completed %>">
+    <span class="task-title"><%= todo.title %></span>
+    <div class="task-actions">
+      <%= link_to "✏️", edit_todo_path(todo) %>
+      <%= link_to "🗑️", delete_todo_path(todo), method: :get, data: { turbo: false, confirm: "Are you sure?" }, class: "btn btn-sm btn-danger delete-task" %>
+      <% if !todo.completed %>
+        <%= link_to "✔️", complete_todo_path(todo), method: :get, data: { turbo: false, confirm: "Mark as completed?" }, class: 'btn btn-sm btn-success complete-task' %>
+      <% else %>
+        <%= link_to "🔄", revert_todo_path(todo), method: :get, data: { turbo: false, confirm: "Revert to incomplete?" }, class: 'btn btn-sm btn-warning revert-task' %>
+      <% end %>    </div>
+  </li>
+<% end %>
